@@ -1,17 +1,22 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import LandingPage from "./screen/landing page/LandingPage";
+import LandingPage from "./screen/landingpage/LandingPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MyBlog from "./screen/Myblog/MyBlog";
 
 const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <Header />
       <main>
-        <LandingPage />
+        <Routes>
+          <Route path="/" element={<LandingPage />} exact />
+          <Route path="/myblog" element={<MyBlog />} />
+        </Routes>
       </main>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 };
 
