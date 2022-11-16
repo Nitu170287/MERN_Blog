@@ -1,8 +1,9 @@
-import { Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import "./mainScreen.css";
 const MainScreen = ({ title, children }) => {
   return (
     <div className="mainback">
-      <container>
+      <Container>
         <Row>
           <div className="page">
             {title && (
@@ -14,7 +15,7 @@ const MainScreen = ({ title, children }) => {
             {children}
           </div>
         </Row>
-      </container>
+      </Container>
     </div>
   );
 };
