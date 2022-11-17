@@ -1,14 +1,29 @@
+import { useEffect, useState } from "react";
 import { Accordion, Badge, Button, Card } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 import MainScreen from "../../components/MainScreen";
-import blogs from "../../data/blogs";
+
+import axios from "axios";
 
 const MyBlog = () => {
+  const [blogs, setBlogs] = useState([]);
+
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure?")) {
     }
   };
+
+  const fetchData = async () => {
+    const { data } = await axios.get("/api/blogs");
+    setBlogs(data);
+  };
+
+  console.log(blogs);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <MainScreen title="Welcome back NituDubey....">
